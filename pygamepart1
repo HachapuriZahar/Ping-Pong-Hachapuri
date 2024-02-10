@@ -34,14 +34,18 @@ class Player(GameSprite):
         if key_pressed[K_DOWN] and self.rect.y < 632:
             self.rect.y += self.speed
 
-Player1 = Player("racket.png", 30, 20, 4, 50, 120)
-Player2 = Player("racket.png", 550, 20, 4, 50, 120)
+Player1 = Player("palka.png", 30, 20, 4, 50, 120)
+Player2 = Player("palka.png", 550, 20, 4, 50, 120)
+ball = GameSprite("golova.png", 200, 200, 4, 50, 50)
 
 clock = time.Clock()
 
+
+
 game = True
 while game:
-   
+        
+
     for e in event.get():
         if e.type == QUIT:
             game = False
@@ -51,8 +55,14 @@ while game:
 
     wind.fill((171, 235, 197))
 
-    Player1.moving2()
+    Player1.moving1()
     Player1.reset()
+
+    Player2.moving2()
+    Player2.reset()
+
+    ball.reset()
+
 
     clock.tick(30)
     display.update()
